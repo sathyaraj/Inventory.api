@@ -14,6 +14,7 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-EXPOSE 8080
+ENV ASPNETCORE_URLS=http://+:10000
+EXPOSE 10000
 
 ENTRYPOINT ["dotnet", "Inventory.API.dll"]
