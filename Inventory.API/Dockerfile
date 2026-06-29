@@ -4,9 +4,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore Inventory.API/Inventory.API.csproj
+RUN dotnet restore Inventory.API.csproj
 
-RUN dotnet publish Inventory.API/Inventory.API.csproj -c Release -o /app/publish
+RUN dotnet publish Inventory.API.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 
