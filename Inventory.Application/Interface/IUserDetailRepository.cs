@@ -22,6 +22,5 @@ namespace Inventory.Application.Interface
 
         // 🔐 LOGIN SUPPORT
         Task<UserDetail> GetByUsernameAsync(string username);
-
     }
 }
