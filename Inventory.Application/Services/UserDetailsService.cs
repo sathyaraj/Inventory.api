@@ -57,9 +57,9 @@ namespace Inventory.Application.Services
 
 
 
-            //var roleData = await _roleRepository.GetByIdAsync(Convert.ToInt32(existingUser.Role));
+            var roleData = await _roleRepository.GetByIdAsync(Convert.ToInt32(existingUser.Role));
 
-            var roleData = await _roleRepository.GetRoleByNameAsync(existingUser.Role);
+            //var roleData = await _roleRepository.GetRoleByNameAsync(existingUser.Role);
 
             var token = GenerateJwt(existingUser);
 
