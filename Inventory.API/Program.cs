@@ -183,7 +183,7 @@ app.UseStaticFiles();
 //app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseCors("AllowAngularApp");
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 
