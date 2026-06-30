@@ -61,7 +61,7 @@ builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddScoped<DashboardService>();
 
 builder.Services.AddScoped<ICurrencyRepository,CurrencyRepository>();
-
+ 
 builder.Services.AddScoped<CurrencyService>();
 
 builder.Services.AddScoped<IDiscountRepository,DiscountRepository>();
@@ -134,18 +134,31 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll",
+//        policy =>
+//        {
+//            policy.AllowAnyOrigin()
+//                   .AllowAnyHeader()
+//                   .AllowAnyMethod();
+//        });
+//});
+
+
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
+    options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.AllowAnyOrigin()
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
+            policy.WithOrigins("https://kms-cafm-admin.sathyaraj-air.workers.dev") 
+            .AllowAnyHeader()
+                  .AllowAnyMethod();
         });
 });
 
-
+app.UseCors("AllowAngularApp");
 
 //builder.Services.AddCors(options =>
 //{
@@ -169,12 +182,12 @@ app.UseStaticFiles();
 //app.UseHttpsRedirection();
 
 
-app.UseCors("AllowAll");
+//app.UseCors("AllowAll");
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
+ 
 app.Run();
