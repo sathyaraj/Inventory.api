@@ -179,9 +179,9 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseStaticFiles();
 //app.UseHttpsRedirection();
+app.UseRouting();
 
-
-app.UseCors("AllowAll");
+app.UseCors("AllowAngularApp");
 
 app.UseAuthentication();
 
