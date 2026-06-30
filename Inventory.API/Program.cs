@@ -158,7 +158,6 @@ builder.Services.AddCors(options =>
         });
 });
 
-app.UseCors("AllowAngularApp");
 
 //builder.Services.AddCors(options =>
 //{
@@ -182,7 +181,7 @@ app.UseStaticFiles();
 //app.UseHttpsRedirection();
 
 
-//app.UseCors("AllowAll");
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 
